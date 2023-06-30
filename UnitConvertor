@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Converter</h1>
+        <h3>Temperature</h3>
+        <label for="celsius">Celsius</label>
+        <input type="number" id="celsius" placeholder="Enter temperature in Celsius">
+        <label for="fahrenheit">Fahrenheit</label>
+        <input type="number" id="fahrenheit" placeholder="Enter temperature in Fahrenheit">
+        <div class="btn-container">
+            <button onclick="convertCelsiusToFahrenheit()">C to F</button>
+            <button onclick="convertFahrenheitToCelsius()">F to C</button>
+        </div>
+        <h3>Length</h3>
+        <label for="meters">Meters</label>
+        <input type="number" id="meters" placeholder="Enter length in meters">
+        <label for="feet">Feet</label>
+        <input type="number" id="feet" placeholder="Enter length in feet">
+        <div class="btn-container">
+            <button onclick="convertMetersToFeet()">M to Ft</button>
+            <button onclick="convertFeetToMeters()">Ft to M</button>
+        </div>
+        <h3>Weight</h3>
+        <label for="kilograms">Kilograms</label>
+        <input type="number" id="kilograms" placeholder="Enter weight in kilograms">
+        <label for="pounds">Pounds</label>
+        <input type="number" id="pounds" placeholder="Enter weight in pounds">
+        <div class="btn-container">
+            <button onclick="convertKilogramsToPounds()">Kg to Lb</button>
+            <button onclick="convertPoundsToKilograms()">Lb to Kg</button>
+        </div>
+        <h3>Volume</h3>
+        <label for="liters">Liters</label>
+        <input type="number" id="liters" placeholder="Enter volume in liters">
+        <label for="gallons">Gallons</label>
+        <input type="number" id="gallons" placeholder="Enter volume in gallons">
+        <div class="btn-container">
+            <button onclick="convertLitersToGallons()">L to Gal</button>
+            <button onclick="convertGallonsToLiters()">Gal to L</button>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function convertCelsiusToFahrenheit() {
+            var celsius = parseFloat(document.getElementById("celsius").value);
+            if (!isNaN(celsius)) {
+                var fahrenheit = (celsius * 9 / 5) + 32;
+                document.getElementById("fahrenheit").value = fahrenheit.toFixed(2);
+            }
+        }
+
+        function convertFahrenheitToCelsius() {
+            var fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
+            if (!isNaN(fahrenheit)) {
+                var celsius = (fahrenheit - 32) * 5 / 9;
+                document.getElementById("celsius").value = celsius.toFixed(2);
+            }
+        }
+
+        function convertMetersToFeet() {
+            var meters = parseFloat(document.getElementById("meters").value);
+            if (!isNaN(meters)) {
+                var feet = meters * 3.28084;
+                document.getElementById("feet").value = feet.toFixed(2);
+            }
+        }
+
+        function convertFeetToMeters() {
+            var feet = parseFloat(document.getElementById("feet").value);
+            if (!isNaN(feet)) {
+                var meters = feet / 3.28084;
+                document.getElementById("meters").value = meters.toFixed(2);
+            }
+        }
+
+        function convertKilogramsToPounds() {
+            var kilograms = parseFloat(document.getElementById("kilograms").value);
+            if (!isNaN(kilograms)) {
+                var pounds = kilograms * 2.20462;
+                document.getElementById("pounds").value = pounds.toFixed(2);
+            }
+        }
+
+        function convertPoundsToKilograms() {
+            var pounds = parseFloat(document.getElementById("pounds").value);
+            if (!isNaN(pounds)) {
+                var kilograms = pounds / 2.20462;
+                document.getElementById("kilograms").value = kilograms.toFixed(2);
+            }
+        }
+
+        function convertLitersToGallons() {
+            var liters = parseFloat(document.getElementById("liters").value);
+            if (!isNaN(liters)) {
+                var gallons = liters * 0.264172;
+                document.getElementById("gallons").value = gallons.toFixed(2);
+            }
+        }
+
+        function convertGallonsToLiters() {
+            var gallons = parseFloat(document.getElementById("gallons").value);
+            if (!isNaN(gallons)) {
+                var liters = gallons / 0.264172;
+                document.getElementById("liters").value = liters.toFixed(2);
+            }
+        }
+    </script>
+</body>
+</html>
